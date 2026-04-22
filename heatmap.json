@@ -1,0 +1,12 @@
+[
+  { "date": "2026-04-22", "hour": 0, "temperature": 4.7 },
+  { "date": "2026-04-22", "hour": 1, "temperature": 4.2 },
+  { "date": "2026-04-22", "hour": 2, "temperature": 3.7 },
+  { "date": "2026-04-22", "hour": 3, "temperature": 2.8 },
+  { "date": "2026-04-22", "hour": 4, "temperature": 2.5 },
+  { "date": "2026-04-23", "hour": 0, "temperature": 9.2 },
+  { "date": "2026-04-23", "hour": 1, "temperature": 8.4 },
+  { "date": "2026-04-23", "hour": 2, "temperature": 7.4 },
+  { "date": "2026-04-23", "hour": 3, "temperature": 6.5 },
+  { "date": "2026-04-23", "hour": 4, "temperature": 5.7 }
+]
