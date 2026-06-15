@@ -1,0 +1,1744 @@
+{
+  "model": [
+    {
+      "name": "ICAR",
+      "ordering": 9,
+      "pageContentId": 8,
+      "theme1Id": null,
+      "isPrivate": null,
+      "createdBy": "Lachlan.Pearce@dimensionsoft.com",
+      "createdOn": "2026-04-20T09:55:29.8633333+00:00",
+      "statusID": 3,
+      "description": "",
+      "viewId": 1,
+      "slideoutWidth": 70,
+      "slideoutShowInMenu": false,
+      "roles": null,
+      "interconnections": [
+        {
+          "id": 8424,
+          "name": "Report Gen URL > GV",
+          "subscriberType": 3,
+          "publisherType": 1,
+          "subscriberTabId": 289,
+          "subscriberSectionId": null,
+          "subscriberName": "ShiftGV",
+          "publisherSectionId": null,
+          "publisherTabId": null,
+          "behaviour": [
+            {
+              "name": "StartTime",
+              "destinationProperty": "StartTime"
+            },
+            {
+              "name": "EndTime",
+              "destinationProperty": "EndTime"
+            },
+            {
+              "name": "Shift",
+              "destinationProperty": "Shift"
+            },
+            {
+              "name": "Identifier1",
+              "destinationProperty": "Identifier1"
+            },
+            {
+              "name": "Identifier2",
+              "destinationProperty": "Identifier2"
+            },
+            {
+              "name": "Identifier3",
+              "destinationProperty": "Identifier3"
+            },
+            {
+              "name": "EventType",
+              "destinationProperty": "EventType"
+            }
+          ]
+        },
+        {
+          "id": 11415,
+          "name": "",
+          "subscriberType": 3,
+          "publisherType": 0,
+          "subscriberTabId": 289,
+          "subscriberSectionId": 2867,
+          "subscriberName": "ProductionDelaysGV",
+          "publisherSectionId": null,
+          "publisherTabId": null,
+          "behaviour": null
+        },
+        {
+          "id": 11416,
+          "name": "",
+          "subscriberType": 3,
+          "publisherType": 0,
+          "subscriberTabId": 289,
+          "subscriberSectionId": 2867,
+          "subscriberName": "ProductionDelaysGV",
+          "publisherSectionId": null,
+          "publisherTabId": null,
+          "behaviour": null
+        },
+        {
+          "id": 11417,
+          "name": "",
+          "subscriberType": 3,
+          "publisherType": 0,
+          "subscriberTabId": 289,
+          "subscriberSectionId": 2867,
+          "subscriberName": "ProductionDelaysGV",
+          "publisherSectionId": null,
+          "publisherTabId": null,
+          "behaviour": null
+        },
+        {
+          "id": 11418,
+          "name": "",
+          "subscriberType": 3,
+          "publisherType": 0,
+          "subscriberTabId": 289,
+          "subscriberSectionId": 2867,
+          "subscriberName": "ProductionDelaysGV",
+          "publisherSectionId": null,
+          "publisherTabId": null,
+          "behaviour": null
+        }
+      ],
+      "sections": [
+        {
+          "id": 2866,
+          "aI_PortalPageContentTypeId": 25,
+          "name": "Create New Issue",
+          "setting": {
+            "CategoryId": "132",
+            "CategoryIdSubscriptionKey": "",
+            "Title": "New Issue Form @UniqueType: @UniqueName",
+            "Query": "where NewRecord = 1",
+            "Params": [
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "OperatorTagID",
+                "ParamName": "@TagID",
+                "Operator": 0,
+                "DefaultValue": "-1",
+                "DisplayValue": "ProductionDelaysGV[OperatorTagID]"
+              },
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "OperatorAssetID",
+                "ParamName": "@AssetID",
+                "Operator": 0,
+                "DefaultValue": "-1",
+                "DisplayValue": "ProductionDelaysGV[OperatorAssetID]"
+              },
+              {
+                "InputType": 12,
+                "Variable": "",
+                "Value": "SELECT\r\n    CASE\r\n        WHEN NULLIF(LTRIM(RTRIM('@AssetID')), '') IS NOT NULL\r\n             AND LTRIM(RTRIM('@AssetID')) <> '-1'\r\n            THEN 'EE_AssetID_' + LTRIM(RTRIM('@AssetID'))\r\n        WHEN NULLIF(LTRIM(RTRIM('@TagID')), '') IS NOT NULL\r\n            THEN 'EE_TagID_' + LTRIM(RTRIM('@TagID'))\r\n        ELSE ''\r\n    END AS UniqueKey,\r\n    CASE\r\n        WHEN NULLIF(LTRIM(RTRIM('@AssetID')), '') IS NOT NULL\r\n             AND LTRIM(RTRIM('@AssetID')) <> '-1'\r\n            THEN 'Asset'\r\n        WHEN NULLIF(LTRIM(RTRIM('@TagID')), '') IS NOT NULL\r\n            THEN 'Tag'\r\n        ELSE ''\r\n    END AS [Type],\r\n    CASE\r\n        WHEN NULLIF(LTRIM(RTRIM('@AssetID')), '') IS NOT NULL\r\n             AND LTRIM(RTRIM('@AssetID')) <> '-1'\r\n            THEN ISNULL((SELECT Name FROM _Asset_V WHERE ID = '@AssetID'), 'No Asset Configured')\r\n        WHEN NULLIF(LTRIM(RTRIM('@TagID')), '') IS NOT NULL\r\n            THEN ISNULL((SELECT Name FROM EE_Tag_V WHERE ID = '@TagID'), 'No Tag Configured')\r\n        ELSE ''\r\n    END AS SelectedName;",
+                "ParamName": "@UniqueSet",
+                "Operator": 0,
+                "DefaultValue": "2",
+                "DisplayValue": "<'SELECT\r\n    CASE\r\n        WHEN NULLIF(LTRIM(RTRIM('@AssetID')), '') IS NOT NULL\r\n             AND LTRIM(RTRIM('@AssetID')) <> '-1'\r\n          ...' Dataset>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "UniqueSet",
+                "ParamName": "@UniqueKey",
+                "Operator": 0,
+                "DefaultValue": "UniqueKey",
+                "DisplayValue": "<'UniqueSet[UniqueKey]' Dataset Field>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "UniqueSet",
+                "ParamName": "@UniqueType",
+                "Operator": 0,
+                "DefaultValue": "Type",
+                "DisplayValue": "<'UniqueSet[Type]' Dataset Field>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "UniqueSet",
+                "ParamName": "@UniqueName",
+                "Operator": 0,
+                "DefaultValue": "SelectedName",
+                "DisplayValue": "<'UniqueSet[SelectedName]' Dataset Field>"
+              }
+            ],
+            "Subscription": [
+              {
+                "Id": 8699,
+                "AutoTrigger": false,
+                "Enabled": true,
+                "RefreshOnSave": true
+              }
+            ],
+            "RefreshDataOnTabReopen": true,
+            "SqlLinks": [],
+            "SaveButtonName": "",
+            "SaveButtonTooltip": "",
+            "CloseButtonHide": false
+          },
+          "dynamicLayout": {
+            "x": 0,
+            "y": 3,
+            "rows": 16,
+            "cols": 48
+          },
+          "datasource": {
+            "content": [
+              {
+                "id": 132,
+                "name": "ICAR - Create Issue - Productions Delay",
+                "sqlEditorSetting": {
+                  "title": "ICAR",
+                  "description": null,
+                  "helpURL": null,
+                  "numberOfColumns": 2,
+                  "pageSize": 100,
+                  "hideNewButton": false,
+                  "hideEditButton": false,
+                  "hideDeleteButton": true,
+                  "hideExportButton": false,
+                  "hideImportButton": true,
+                  "hideSplitButton": true,
+                  "hideMergeButton": true,
+                  "editFieldsLocation": "EmbeddedForm",
+                  "useProtectedView": false,
+                  "defaultSortingField": "PriorityID",
+                  "wikiField": "",
+                  "defaultSortingFieldWithSpace": "PriorityID",
+                  "sortingOrder": "DESC",
+                  "groupHeaders": false,
+                  "dataSourceId": 2,
+                  "dataSourceTable": "iCAR_Issues",
+                  "filterMode": "none",
+                  "autoRefresh": false,
+                  "autoRefreshRate": null,
+                  "buttonLocation": "bottom",
+                  "useImpersonation": false,
+                  "formattingColorIngrid": true,
+                  "formattingColorPopupDialog": false,
+                  "formattingColorEmbeddedForm": true,
+                  "splitStartTimeColumnName": "",
+                  "splitStopTimeColumnName": "",
+                  "locale": "en",
+                  "uniqueKeys": [
+                    {
+                      "name": "ID",
+                      "dataType": "Int32",
+                      "isReadOnly": true,
+                      "isAutoIncrement": true,
+                      "type": "single"
+                    }
+                  ],
+                  "displayColumns": [
+                    {
+                      "name": "Name",
+                      "uiField": "Name",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 1,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "Issue",
+                        "labelIndent": null,
+                        "tooltip": "Name of the Issue",
+                        "readOnly": false,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": 4,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": 100,
+                        "gridColumnWidthUnit": "%",
+                        "wrapContent": false,
+                        "displayInGrid": true,
+                        "displayInEditor": true,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "textarea",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "Description",
+                      "uiField": "Description",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 2,
+                      "columnSize": 2147483647,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "Description",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": false,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": 4,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": true,
+                        "displayInEditor": true,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "D MMM YYYY  h:mm a",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "textarea",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "PriorityID",
+                      "uiField": "PriorityID",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 3,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Int32",
+                        "originalDataType": null,
+                        "label": "Priority",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": false,
+                        "hasRelatedTable": true,
+                        "query": "SELECT *\nFROM iCAR_Enum_issuepriority",
+                        "relatedValueColumn": "ID",
+                        "relatedTextColumn": "Name",
+                        "relatedTableDataSourceId": 2,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": true,
+                        "displayInEditor": true,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "Owner",
+                      "uiField": "Owner",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 4,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "Owner",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": false,
+                        "hasRelatedTable": true,
+                        "query": "SELECT * FROM [dbo].[AI_UserList]",
+                        "relatedValueColumn": "DisplayName",
+                        "relatedTextColumn": "DisplayName",
+                        "relatedTableDataSourceId": 1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": true,
+                        "displayInEditor": true,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": "@CurrentUser"
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "CategoryID",
+                      "uiField": "CategoryID",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 5,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Int32",
+                        "originalDataType": null,
+                        "label": "Category",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": false,
+                        "hasRelatedTable": true,
+                        "query": "SELECT *\nFROM ICAR_enum_issuecategory",
+                        "relatedValueColumn": "ID",
+                        "relatedTextColumn": "Name",
+                        "relatedTableDataSourceId": 2,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": true,
+                        "displayInEditor": true,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "StatusID",
+                      "uiField": "StatusID",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 6,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Int32",
+                        "originalDataType": null,
+                        "label": "Status",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": false,
+                        "hasRelatedTable": true,
+                        "query": "SELECT *\nFROM iCAR_Enum_status",
+                        "relatedValueColumn": "ID",
+                        "relatedTextColumn": "Name",
+                        "relatedTableDataSourceId": 2,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": false,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "AssetID",
+                      "uiField": "AssetID",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 7,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Int32",
+                        "originalDataType": null,
+                        "label": "Asset",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": true,
+                        "query": "SELECT ID,NAME FROM _Asset_V WHERE HierarchyLevel > 1",
+                        "relatedValueColumn": "ID",
+                        "relatedTextColumn": "NAME",
+                        "relatedTableDataSourceId": 2,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": false,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": "parameter",
+                          "value": "@AssetID"
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "Validated",
+                      "uiField": "Validated",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 8,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Boolean",
+                        "originalDataType": null,
+                        "label": "Validated",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 0,
+                        "relatedTableMaxSearchLimit": 0,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": null,
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "ValidatedBy",
+                      "uiField": "ValidatedBy",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 9,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "Validated By",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": true,
+                        "query": "SELECT * FROM [dbo].[AI_UserList]",
+                        "relatedValueColumn": "DisplayName",
+                        "relatedTextColumn": "DisplayName",
+                        "relatedTableDataSourceId": 1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "dropdownlist",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "CreatedOn",
+                      "uiField": "CreatedOn",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 10,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "DateTime",
+                        "originalDataType": null,
+                        "label": "Reported On",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 0,
+                        "relatedTableMaxSearchLimit": 0,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": "CreatedOn",
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": null,
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "CreatedBy",
+                      "uiField": "CreatedBy",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 11,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "Reported By",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": "CreatedBy",
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "textbox",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "ModifiedOn",
+                      "uiField": "ModifiedOn",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 12,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "DateTime",
+                        "originalDataType": null,
+                        "label": "ModifiedOn",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 0,
+                        "relatedTableMaxSearchLimit": 0,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": {
+                          "hi": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "low": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "minimum": {
+                            "value": null,
+                            "formatCatId": null
+                          },
+                          "maximum": {
+                            "value": null,
+                            "formatCatId": null
+                          }
+                        },
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": "ModifiedOn",
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": null,
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "ModifiedBy",
+                      "uiField": "ModifiedBy",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 13,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "ModifiedBy",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": true,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": null,
+                          "value": null
+                        },
+                        "systemInfo": {
+                          "type": "ModifiedBy",
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "textbox",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "NewRecord",
+                      "uiField": "NewRecord",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 14,
+                      "columnSize": null,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "Boolean",
+                        "originalDataType": null,
+                        "label": "NewRecord",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 0,
+                        "relatedTableMaxSearchLimit": 0,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": false,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": "constant",
+                          "value": "false"
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": null,
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    },
+                    {
+                      "name": "UniqueKey",
+                      "uiField": "UniqueKey",
+                      "dataSourceId": 2,
+                      "dataSourceTable": "iCAR_Issues",
+                      "displayOrder": 15,
+                      "columnSize": 100,
+                      "isModified": false,
+                      "isNew": false,
+                      "isStale": false,
+                      "isCustomStyle": false,
+                      "columnDetail": {
+                        "dataType": "String",
+                        "originalDataType": "String",
+                        "label": "UniqueKey",
+                        "labelIndent": null,
+                        "tooltip": null,
+                        "readOnly": true,
+                        "hasRelatedTable": false,
+                        "query": null,
+                        "relatedValueColumn": null,
+                        "relatedTextColumn": null,
+                        "relatedTableDataSourceId": -1,
+                        "relatedTableMinSearchLength": 2,
+                        "relatedTableMaxSearchLimit": 10,
+                        "relatedTableSearchableOn": null,
+                        "queryCommandData": null,
+                        "enableCascade": false,
+                        "cascadeQuery": null,
+                        "cascadeValueColumn": null,
+                        "cascadeTextColumn": null,
+                        "mandatory": false,
+                        "mandatoryEdited": false,
+                        "fieldHeight": null,
+                        "fieldSize": "large",
+                        "helpURL": null,
+                        "gridColumnWidth": null,
+                        "gridColumnWidthUnit": "px",
+                        "wrapContent": false,
+                        "displayInGrid": false,
+                        "displayInEditor": false,
+                        "displayInExport": false,
+                        "numericFormat": null,
+                        "dateTimeFormat": "DD-MMM-YYYY",
+                        "isLink": false,
+                        "linkURL": null,
+                        "conditionalFormatList": null,
+                        "defaultValue": {
+                          "type": null,
+                          "value": null
+                        },
+                        "valueOnSave": {
+                          "type": "parameter",
+                          "value": "@UniqueKey"
+                        },
+                        "systemInfo": {
+                          "type": null,
+                          "category": null
+                        },
+                        "textAlignment": "left",
+                        "inputType": "textbox",
+                        "hasRelatedTableType": "SQL",
+                        "relatedTableUserDefinedList": [],
+                        "selectedFirstItem": false,
+                        "showCollapseButton": false,
+                        "collapseByDefault": false,
+                        "isHideFilter": false
+                      }
+                    }
+                  ],
+                  "formattingList": [],
+                  "permissionList": [
+                    {
+                      "roleId": 3,
+                      "roleName": "Asset Intellect - Read Only",
+                      "canAdd": false,
+                      "canEdit": false,
+                      "canDelete": false,
+                      "canEditSchema": false,
+                      "readOnly": true
+                    },
+                    {
+                      "roleId": 4,
+                      "roleName": "Asset Intellect - Supervisor",
+                      "canAdd": true,
+                      "canEdit": true,
+                      "canDelete": false,
+                      "canEditSchema": false,
+                      "readOnly": false
+                    },
+                    {
+                      "roleId": 5,
+                      "roleName": "Asset Intellect - General User",
+                      "canAdd": false,
+                      "canEdit": false,
+                      "canDelete": false,
+                      "canEditSchema": false,
+                      "readOnly": true
+                    },
+                    {
+                      "roleId": 95,
+                      "roleName": "DS - Support",
+                      "canAdd": true,
+                      "canEdit": true,
+                      "canDelete": true,
+                      "canEditSchema": false,
+                      "readOnly": false
+                    },
+                    {
+                      "roleId": 99,
+                      "roleName": "Asset Intellect - Manager",
+                      "canAdd": true,
+                      "canEdit": true,
+                      "canDelete": false,
+                      "canEditSchema": false,
+                      "readOnly": false
+                    },
+                    {
+                      "roleId": 100,
+                      "roleName": "Asset Intellect - Operator",
+                      "canAdd": true,
+                      "canEdit": true,
+                      "canDelete": false,
+                      "canEditSchema": false,
+                      "readOnly": false
+                    }
+                  ],
+                  "cascadeItems": []
+                },
+                "createdOn": "2026-05-22T15:42:13.3809664+12:00",
+                "createdBy": "Lachlan.Pearce@dimensionsoft.com",
+                "updatedOn": "2026-06-11T10:55:47.2267265+12:00",
+                "updatedBy": "Sophia.Black@dimensionsoft.com"
+              }
+            ],
+            "dataSources": [
+              {
+                "id": 1,
+                "name": "AssetIntellect-Portal",
+                "connectionString": "$AIConnectionString",
+                "username": null,
+                "password": null,
+                "dataSourceTypeId": 4,
+                "databaseTypeId": 4,
+                "isInternal": true,
+                "isPasswordNotEncrypted": false
+              },
+              {
+                "id": 2,
+                "name": "AssetIntellect-Data",
+                "connectionString": "$AIDataConnectionString",
+                "username": null,
+                "password": null,
+                "dataSourceTypeId": 4,
+                "databaseTypeId": 4,
+                "isInternal": true,
+                "isPasswordNotEncrypted": false
+              }
+            ],
+            "conditionalFormatCriterias": [],
+            "conditionalFormats": [],
+            "connectors": [],
+            "piVisionUrls": [],
+            "permissions": [
+              {
+                "id": 3,
+                "name": "Asset Intellect - Read Only",
+                "enable": true,
+                "description": null,
+                "isDefaultWhenAdding": false
+              },
+              {
+                "id": 4,
+                "name": "Asset Intellect - Supervisor",
+                "enable": true,
+                "description": null,
+                "isDefaultWhenAdding": false
+              },
+              {
+                "id": 5,
+                "name": "Asset Intellect - General User",
+                "enable": true,
+                "description": null,
+                "isDefaultWhenAdding": false
+              },
+              {
+                "id": 95,
+                "name": "DS - Support",
+                "enable": true,
+                "description": "This is a default role and has access to ALL modules whether licensed or not.",
+                "isDefaultWhenAdding": true
+              },
+              {
+                "id": 99,
+                "name": "Asset Intellect - Manager",
+                "enable": true,
+                "description": null,
+                "isDefaultWhenAdding": false
+              },
+              {
+                "id": 100,
+                "name": "Asset Intellect - Operator",
+                "enable": true,
+                "description": null,
+                "isDefaultWhenAdding": false
+              }
+            ],
+            "powerBIRenewToken": null,
+            "additionalSqlEditorExportModel": null,
+            "additionalContentFilterExportModel": null
+          },
+          "conditionalFormatCriterias": [],
+          "conditionalFormats": [],
+          "powerBIRenewToken": null
+        },
+        {
+          "id": 2867,
+          "aI_PortalPageContentTypeId": 26,
+          "name": "Header-2867",
+          "setting": {
+            "Text": "b64:PGg0PjxzcGFuIHN0eWxlPSJjb2xvcjogcmdiKDIyOSwgMjI5LCAyMjkpOyI+Q3JlYXRlIE5ldyBJc3N1ZTwvc3Bhbj48L2g0Pg==",
+            "BackgroundColor": "var(--ai-title-font-color)",
+            "ForegroundColor": "#317eac",
+            "FontSize": 16,
+            "Bold": false,
+            "Italic": false,
+            "Underline": false,
+            "Alignment": 1,
+            "WordWrap": false,
+            "VerticalAlignment": "center",
+            "PageBreak": "",
+            "AdditionalParam": [
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "EquipmentTypeID",
+                "ParamName": "@EquipmentID",
+                "Operator": 0,
+                "DefaultValue": "",
+                "DisplayValue": "ProductionDelaysGV[EquipmentTypeID]"
+              },
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "OperatorAssetID",
+                "ParamName": "@AssetID",
+                "Operator": 0,
+                "DefaultValue": "-1",
+                "DisplayValue": "ProductionDelaysGV[OperatorAssetID]"
+              },
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "OperatorTagID",
+                "ParamName": "@TagID",
+                "Operator": 0,
+                "DefaultValue": "-1",
+                "DisplayValue": "ProductionDelaysGV[OperatorTagID]"
+              },
+              {
+                "InputType": 15,
+                "Variable": "ProductionDelaysGV",
+                "Value": "IssueID",
+                "ParamName": "@IssueID",
+                "Operator": 0,
+                "DefaultValue": "IssueID",
+                "DisplayValue": "ProductionDelaysGV[IssueID]"
+              },
+              {
+                "InputType": 12,
+                "Variable": "",
+                "Value": "IF '@EquipmentID' IS NOT NULL AND '@EquipmentID' <> ''   \r\nBEGIN\r\n    select * from EE_EquipmentType WHERE ID = '@EquipmentID'\r\nEND\r\n\r\nELSE\r\nBEGIN\r\n    select '' as [Name]\r\nEND",
+                "ParamName": "@EquipmentData",
+                "Operator": 0,
+                "DefaultValue": "1",
+                "DisplayValue": "<'IF '@EquipmentID' IS NOT NULL AND '@EquipmentID' <> ''   \r\nBEGIN\r\n    select * from EE_EquipmentType WHERE ID = '@EquipmentID'\r\nEND\r\n\r\nELSE\r\nB...' Dataset>"
+              },
+              {
+                "InputType": 12,
+                "Variable": "",
+                "Value": "SELECT \r\n    CASE\r\n        WHEN TRY_CAST('@AssetID' AS INT) IS NULL OR TRY_CAST('@AssetID' AS INT) = -1\r\n            THEN 'No Asset Configured'\r\n        ELSE ISNULL(\r\n            (SELECT Name FROM _Asset_V WHERE ID = TRY_CAST('@AssetID' AS INT)),\r\n            'No Asset Configured'\r\n        )\r\n    END AS [AssetName]",
+                "ParamName": "@AssetSet",
+                "Operator": 0,
+                "DefaultValue": "2",
+                "DisplayValue": "<'SELECT \r\n    CASE\r\n        WHEN TRY_CAST('@AssetID' AS INT) IS NULL OR TRY_CAST('@AssetID' AS INT) = -1\r\n            THEN 'No Asset Configured...' Dataset>"
+              },
+              {
+                "InputType": 12,
+                "Variable": "",
+                "Value": "SELECT \r\n    CASE\r\n        WHEN TRY_CAST('@TagID' AS INT) IS NULL OR TRY_CAST('@TagID' AS INT) = -1\r\n            THEN 'No Tag Configured'\r\n        ELSE ISNULL(\r\n            (SELECT Name FROM EE_Tag_V WHERE ID = TRY_CAST('@TagID' AS INT)),\r\n            'No Tag Configured'\r\n        )\r\n    END AS [TagName]",
+                "ParamName": "@TagSet",
+                "Operator": 0,
+                "DefaultValue": "2",
+                "DisplayValue": "<'SELECT \r\n    CASE\r\n        WHEN TRY_CAST('@TagID' AS INT) IS NULL OR TRY_CAST('@TagID' AS INT) = -1\r\n            THEN 'No Tag Configured'\r\n   ...' Dataset>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "EquipmentData",
+                "ParamName": "@Source",
+                "Operator": 0,
+                "DefaultValue": "Name",
+                "DisplayValue": "<'EquipmentData[Name]' Dataset Field>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "AssetSet",
+                "ParamName": "@AssetName",
+                "Operator": 0,
+                "DefaultValue": "AssetName",
+                "DisplayValue": "<'AssetSet[AssetName]' Dataset Field>"
+              },
+              {
+                "InputType": 13,
+                "Variable": "",
+                "Value": "TagSet",
+                "ParamName": "@TagName",
+                "Operator": 0,
+                "DefaultValue": "TagName",
+                "DisplayValue": "<'TagSet[TagName]' Dataset Field>"
+              }
+            ]
+          },
+          "dynamicLayout": {
+            "x": 3,
+            "y": 0,
+            "rows": 3,
+            "cols": 45
+          },
+          "datasource": [
+            {
+              "id": 1,
+              "name": "AssetIntellect-Portal",
+              "connectionString": "$AIConnectionString",
+              "username": null,
+              "password": null,
+              "dataSourceTypeId": 4,
+              "databaseTypeId": 4,
+              "isInternal": true,
+              "isPasswordNotEncrypted": false
+            },
+            {
+              "id": 2,
+              "name": "AssetIntellect-Data",
+              "connectionString": "$AIDataConnectionString",
+              "username": null,
+              "password": null,
+              "dataSourceTypeId": 4,
+              "databaseTypeId": 4,
+              "isInternal": true,
+              "isPasswordNotEncrypted": false
+            }
+          ],
+          "conditionalFormatCriterias": [],
+          "conditionalFormats": [],
+          "powerBIRenewToken": null
+        },
+        {
+          "id": 2869,
+          "aI_PortalPageContentTypeId": 30,
+          "name": "Button-2869",
+          "setting": {
+            "Id": 0,
+            "AdditionalParams": [],
+            "Title": "",
+            "Buttons": [
+              {
+                "Name": "Close",
+                "Text": "Close",
+                "Tooltip": "",
+                "IconPath": "",
+                "Grayscale": false,
+                "BackgroundColor": "var(--ai-title-font-color)",
+                "TextColor": "#ffffff",
+                "Enabled": "true",
+                "Style": "tile",
+                "Size": "small",
+                "Superscript": "",
+                "SuperscriptColor": "#ffffff",
+                "SuperscriptBackgroundColor": "#ff0000",
+                "AutoRefresh": false,
+                "AutoRefreshRate": 0,
+                "Action": 5,
+                "ActionType": 0,
+                "Url": "",
+                "ElementNavigationType": null,
+                "ElementNavigationAttribute": "",
+                "ElementNavigationValue": "",
+                "SlideOutTargetName": "Close",
+                "SlideOutTarget": null,
+                "SlideOutType": 1,
+                "DataSourceId": null,
+                "Query": "",
+                "ExternalApiData": {
+                  "URL": "",
+                  "RequestType": 1,
+                  "Headers": null,
+                  "ResponsePath": "",
+                  "BodyType": 3,
+                  "BodyValue": "",
+                  "ApiData": [],
+                  "ActualJson": "",
+                  "TimeZone": null
+                },
+                "ConditionalHide": {
+                  "Enabled": false,
+                  "Value1": "",
+                  "Operator": "isEqualTo",
+                  "Value2": ""
+                },
+                "UseImpersonation": false
+              }
+            ],
+            "VerticalAlignment": "start",
+            "HorizontalAlignment": "center"
+          },
+          "dynamicLayout": {
+            "x": 0,
+            "y": 0,
+            "rows": 3,
+            "cols": 3
+          },
+          "datasource": null,
+          "conditionalFormatCriterias": [],
+          "conditionalFormats": [],
+          "powerBIRenewToken": null
+        }
+      ],
+      "theme1": null
+    }
+  ],
+  "content": "PageContentTab",
+  "version": "3.4.0.152"
+}
