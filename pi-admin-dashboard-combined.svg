@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="995" height="545" viewBox="0 0 995 545" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="545" viewBox="0 0 760 545" role="img" aria-labelledby="title desc">
   <title id="title">PI Admin Dashboard - Dev Environment</title>
-  <desc id="desc">Combined SVG recreation of the supplied dashboard screenshots with green status boxes and green data columns removed, arranged as two panels on each side.</desc>
+  <desc id="desc">Combined SVG dashboard with removed status boxes and empty status/value areas for manual population.</desc>
   <defs>
     <style>
       .panel { fill: #878785; stroke: #f0f0f0; stroke-width: 2; }
@@ -11,29 +11,29 @@
       .small { font-size: 11px; }
       .body { font-size: 14px; }
       .section { font-size: 16px; }
-      .title { font-size: 24px; }
+      .title { font-size: 22px; }
       .slot { fill: transparent; }
-      .btnText { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 700; fill: #000; }
     </style>
   </defs>
 
-  <rect width="995" height="545" fill="#0a1038"/>
+  <rect width="760" height="545" fill="#0a1038"/>
 
-  <rect class="header" x="0" y="0" width="995" height="76"/>
-  <rect x="27" y="13" width="112" height="58" fill="#071041"/>
-  <path d="M43 59 C36 44 33 30 35 24 C42 45 47 56 52 62" fill="none" stroke="#00ff65" stroke-width="6" stroke-linecap="round"/>
-  <path d="M48 61 C57 36 61 23 66 22 C65 36 60 53 52 66" fill="none" stroke="#21a5ff" stroke-width="7" stroke-linecap="round"/>
-  <path d="M36 31 C39 46 44 59 51 67" fill="none" stroke="#00ff7a" stroke-width="5" stroke-linecap="round"/>
-  <text class="text" x="76" y="40" font-size="18">vector</text>
-  <text class="text title" x="310" y="51">PI Admin Dashboard - Dev Environment</text>
-  <text class="text small" x="923" y="21">V03-07-2026</text>
+  <rect class="header" x="0" y="0" width="760" height="76"/>
+  <rect x="24" y="13" width="112" height="58" fill="#071041"/>
+  <g transform="translate(31 18)">
+    <path d="M4 13 C7 28 12 39 21 43" fill="none" stroke="#00ff66" stroke-width="5" stroke-linecap="round"/>
+    <path d="M12 17 C14 29 18 38 25 42" fill="none" stroke="#00ff66" stroke-width="5" stroke-linecap="round"/>
+    <path d="M22 40 C28 22 31 7 36 5 C38 12 34 28 27 44" fill="none" stroke="#2ca7ff" stroke-width="6" stroke-linecap="round"/>
+    <text class="text" x="41" y="24" font-size="18">vector</text>
+  </g>
+  <text class="text title" x="236" y="51">PI Admin Dashboard - Dev Environment</text>
+  <text class="text small" x="688" y="21">V03-07-2026</text>
 
-  <!-- Two balanced columns, two dashboard boxes on each side. -->
   <g transform="translate(20 92)">
     <!-- Top left: system health -->
     <g>
-      <rect class="panel" x="0" y="0" width="465" height="132"/>
-      <rect class="bar" x="0" y="0" width="465" height="33"/>
+      <rect class="panel" x="0" y="0" width="350" height="112"/>
+      <rect class="bar" x="0" y="0" width="350" height="33"/>
       <text class="text black section" x="8" y="22">PI System Health</text>
       <rect class="slot" x="14" y="47" width="16" height="16"/>
       <text class="text body" x="39" y="61">PI Backup Successful</text>
@@ -42,11 +42,11 @@
     </g>
 
     <!-- Top right: plant data -->
-    <g transform="translate(490 0)">
-      <rect class="panel" x="0" y="0" width="465" height="132"/>
-      <rect class="bar" x="0" y="0" width="465" height="33"/>
+    <g transform="translate(370 0)">
+      <rect class="panel" x="0" y="0" width="350" height="132"/>
+      <rect class="bar" x="0" y="0" width="350" height="33"/>
       <text class="text black section" x="8" y="22">PI Plant Data - via PItoPI Intefaces</text>
-      <text class="text small" x="336" y="58">Status</text>
+      <text class="text small" x="252" y="58">Status</text>
       <rect class="slot" x="14" y="50" width="16" height="16"/>
       <text class="text body" x="39" y="64">IO Server Gas</text>
       <rect class="slot" x="14" y="69" width="16" height="16"/>
@@ -57,12 +57,21 @@
       <text class="text body" x="39" y="121">PowerTG</text>
     </g>
 
+    <!-- Small applications box: Email Reporting only -->
+    <g transform="translate(0 132)">
+      <rect class="panel" x="0" y="0" width="350" height="76"/>
+      <rect class="bar" x="0" y="0" width="350" height="30"/>
+      <text class="text black section" x="8" y="21">Applications</text>
+      <rect class="slot" x="14" y="44" width="16" height="16"/>
+      <text class="text body" x="39" y="58">Email Reporting</text>
+    </g>
+
     <!-- Bottom left: PI interfaces -->
-    <g transform="translate(0 154)">
-      <rect class="panel" x="0" y="0" width="465" height="275"/>
-      <rect class="bar" x="0" y="0" width="465" height="33"/>
+    <g transform="translate(0 228)">
+      <rect class="panel" x="0" y="0" width="350" height="245"/>
+      <rect class="bar" x="0" y="0" width="350" height="33"/>
       <text class="text black section" x="8" y="22">PI Interfaces</text>
-      <text class="text small" x="345" y="54">Heartbeat</text>
+      <text class="text small" x="259" y="54">Heartbeat</text>
       <rect class="slot" x="14" y="55" width="16" height="16"/>
       <text class="text body" x="39" y="69">PItoPI (POA #1)</text>
       <rect class="slot" x="14" y="77" width="16" height="16"/>
@@ -81,31 +90,24 @@
       <text class="text body" x="39" y="223">TCPResp</text>
     </g>
 
-    <!-- Bottom right: applications and TCP response times inside one box -->
-    <g transform="translate(490 154)">
-      <rect class="panel" x="0" y="0" width="465" height="275"/>
-      <rect class="bar" x="0" y="0" width="465" height="33"/>
-      <text class="text black section" x="8" y="22">Applications</text>
-      <rect x="337" y="6" width="113" height="22" rx="1" fill="#e5e5e5" stroke="#444" stroke-width="1"/>
-      <text class="btnText" x="344" y="21">Check Heartbeats</text>
-      <text class="text small" x="347" y="54">Heartbeat</text>
+    <!-- Right side: TCP response times and uptime labels -->
+    <g transform="translate(370 154)">
+      <rect class="panel" x="0" y="0" width="350" height="197"/>
+      <rect class="bar" x="0" y="0" width="350" height="33"/>
+      <text class="text black section" x="8" y="22">TCP Response Times</text>
+      <text class="text small" x="266" y="54">m/Secs</text>
       <rect class="slot" x="14" y="55" width="16" height="16"/>
-      <text class="text body" x="39" y="69">GDMS - Gas Mon</text>
-      <rect class="slot" x="14" y="77" width="16" height="16"/>
-      <text class="text body" x="39" y="91">Validated Data Status</text>
-      <rect class="slot" x="14" y="99" width="16" height="16"/>
-      <text class="text body" x="39" y="113">Email Reporting</text>
+      <text class="text body" x="39" y="69">AWSPIDAS01TI</text>
+      <rect class="slot" x="14" y="80" width="16" height="16"/>
+      <text class="text body" x="39" y="94">AWSPIAPP01TI</text>
+      <rect class="slot" x="14" y="105" width="16" height="16"/>
+      <text class="text body" x="39" y="119">AWSPISQL01TI</text>
 
-      <line x1="0" y1="138" x2="465" y2="138" stroke="#f0f0f0" stroke-width="2"/>
-      <rect class="bar" x="0" y="141" width="465" height="33"/>
-      <text class="text black section" x="8" y="163">TCP Response Times</text>
-      <text class="text small" x="347" y="191">m/Secs</text>
-      <rect class="slot" x="14" y="192" width="16" height="16"/>
-      <text class="text body" x="39" y="206">AWSPIDAS01TI</text>
-      <rect class="slot" x="14" y="217" width="16" height="16"/>
-      <text class="text body" x="39" y="231">AWSPIAPP01TI</text>
-      <rect class="slot" x="14" y="242" width="16" height="16"/>
-      <text class="text body" x="39" y="256">AWSPISQL01TI</text>
+      <line x1="0" y1="142" x2="350" y2="142" stroke="#f0f0f0" stroke-width="2"/>
+      <text class="text body" x="8" y="175">Uptime</text>
+      <text class="text small" x="86" y="160">AWSPIDAS01TI</text>
+      <text class="text small" x="174" y="160">AWSPIAPP01TI</text>
+      <text class="text small" x="266" y="160">AWSPISQL01TI</text>
     </g>
   </g>
 </svg>
