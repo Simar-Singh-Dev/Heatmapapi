@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="995" height="545" viewBox="0 0 995 545" role="img" aria-labelledby="title desc">
+  <title id="title">PI Admin Dashboard - Dev Environment</title>
+  <desc id="desc">Combined SVG recreation of the supplied dashboard screenshots with green status boxes and green data columns removed, arranged as two panels on each side.</desc>
+  <defs>
+    <style>
+      .panel { fill: #878785; stroke: #f0f0f0; stroke-width: 2; }
+      .bar { fill: #c4c4c4; stroke: #f0f0f0; stroke-width: 1; }
+      .header { fill: #070f3b; stroke: #f0f0f0; stroke-width: 2; }
+      .text { font-family: Arial, Helvetica, sans-serif; font-weight: 700; fill: #fff; }
+      .black { fill: #000; }
+      .small { font-size: 11px; }
+      .body { font-size: 14px; }
+      .section { font-size: 16px; }
+      .title { font-size: 24px; }
+      .slot { fill: transparent; }
+      .btnText { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 700; fill: #000; }
+    </style>
+  </defs>
+
+  <rect width="995" height="545" fill="#0a1038"/>
+
+  <rect class="header" x="0" y="0" width="995" height="76"/>
+  <rect x="27" y="13" width="112" height="58" fill="#071041"/>
+  <path d="M43 59 C36 44 33 30 35 24 C42 45 47 56 52 62" fill="none" stroke="#00ff65" stroke-width="6" stroke-linecap="round"/>
+  <path d="M48 61 C57 36 61 23 66 22 C65 36 60 53 52 66" fill="none" stroke="#21a5ff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M36 31 C39 46 44 59 51 67" fill="none" stroke="#00ff7a" stroke-width="5" stroke-linecap="round"/>
+  <text class="text" x="76" y="40" font-size="18">vector</text>
+  <text class="text title" x="310" y="51">PI Admin Dashboard - Dev Environment</text>
+  <text class="text small" x="923" y="21">V03-07-2026</text>
+
+  <!-- Two balanced columns, two dashboard boxes on each side. -->
+  <g transform="translate(20 92)">
+    <!-- Top left: system health -->
+    <g>
+      <rect class="panel" x="0" y="0" width="465" height="132"/>
+      <rect class="bar" x="0" y="0" width="465" height="33"/>
+      <text class="text black section" x="8" y="22">PI System Health</text>
+      <rect class="slot" x="14" y="47" width="16" height="16"/>
+      <text class="text body" x="39" y="61">PI Backup Successful</text>
+      <rect class="slot" x="14" y="72" width="16" height="16"/>
+      <text class="text body" x="39" y="86">AF Health</text>
+    </g>
+
+    <!-- Top right: plant data -->
+    <g transform="translate(490 0)">
+      <rect class="panel" x="0" y="0" width="465" height="132"/>
+      <rect class="bar" x="0" y="0" width="465" height="33"/>
+      <text class="text black section" x="8" y="22">PI Plant Data - via PItoPI Intefaces</text>
+      <text class="text small" x="336" y="58">Status</text>
+      <rect class="slot" x="14" y="50" width="16" height="16"/>
+      <text class="text body" x="39" y="64">IO Server Gas</text>
+      <rect class="slot" x="14" y="69" width="16" height="16"/>
+      <text class="text body" x="39" y="83">DISTAUTO1</text>
+      <rect class="slot" x="14" y="88" width="16" height="16"/>
+      <text class="text body" x="39" y="102">PowerON (ENMAC)</text>
+      <rect class="slot" x="14" y="107" width="16" height="16"/>
+      <text class="text body" x="39" y="121">PowerTG</text>
+    </g>
+
+    <!-- Bottom left: PI interfaces -->
+    <g transform="translate(0 154)">
+      <rect class="panel" x="0" y="0" width="465" height="275"/>
+      <rect class="bar" x="0" y="0" width="465" height="33"/>
+      <text class="text black section" x="8" y="22">PI Interfaces</text>
+      <text class="text small" x="345" y="54">Heartbeat</text>
+      <rect class="slot" x="14" y="55" width="16" height="16"/>
+      <text class="text body" x="39" y="69">PItoPI (POA #1)</text>
+      <rect class="slot" x="14" y="77" width="16" height="16"/>
+      <text class="text body" x="39" y="91">PItoPI (POA #2)</text>
+      <rect class="slot" x="14" y="99" width="16" height="16"/>
+      <text class="text body" x="39" y="113">PItoPI (DISCOS)</text>
+      <rect class="slot" x="14" y="121" width="16" height="16"/>
+      <text class="text body" x="39" y="135">PItoPI (PowerTG)</text>
+      <rect class="slot" x="14" y="143" width="16" height="16"/>
+      <text class="text body" x="39" y="157">PIPESchd</text>
+      <rect class="slot" x="14" y="165" width="16" height="16"/>
+      <text class="text body" x="39" y="179">Perfmon</text>
+      <rect class="slot" x="14" y="187" width="16" height="16"/>
+      <text class="text body" x="39" y="201">Ping</text>
+      <rect class="slot" x="14" y="209" width="16" height="16"/>
+      <text class="text body" x="39" y="223">TCPResp</text>
+    </g>
+
+    <!-- Bottom right: applications and TCP response times inside one box -->
+    <g transform="translate(490 154)">
+      <rect class="panel" x="0" y="0" width="465" height="275"/>
+      <rect class="bar" x="0" y="0" width="465" height="33"/>
+      <text class="text black section" x="8" y="22">Applications</text>
+      <rect x="337" y="6" width="113" height="22" rx="1" fill="#e5e5e5" stroke="#444" stroke-width="1"/>
+      <text class="btnText" x="344" y="21">Check Heartbeats</text>
+      <text class="text small" x="347" y="54">Heartbeat</text>
+      <rect class="slot" x="14" y="55" width="16" height="16"/>
+      <text class="text body" x="39" y="69">GDMS - Gas Mon</text>
+      <rect class="slot" x="14" y="77" width="16" height="16"/>
+      <text class="text body" x="39" y="91">Validated Data Status</text>
+      <rect class="slot" x="14" y="99" width="16" height="16"/>
+      <text class="text body" x="39" y="113">Email Reporting</text>
+
+      <line x1="0" y1="138" x2="465" y2="138" stroke="#f0f0f0" stroke-width="2"/>
+      <rect class="bar" x="0" y="141" width="465" height="33"/>
+      <text class="text black section" x="8" y="163">TCP Response Times</text>
+      <text class="text small" x="347" y="191">m/Secs</text>
+      <rect class="slot" x="14" y="192" width="16" height="16"/>
+      <text class="text body" x="39" y="206">AWSPIDAS01TI</text>
+      <rect class="slot" x="14" y="217" width="16" height="16"/>
+      <text class="text body" x="39" y="231">AWSPIAPP01TI</text>
+      <rect class="slot" x="14" y="242" width="16" height="16"/>
+      <text class="text body" x="39" y="256">AWSPISQL01TI</text>
+    </g>
+  </g>
+</svg>
